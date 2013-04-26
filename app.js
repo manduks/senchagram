@@ -12,6 +12,11 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
+    viewport: {
+        autoMaximize: true
+    },
+
+    stores:['Images'],
     views: ['Main'],
 
     icon: {
@@ -38,6 +43,9 @@ Ext.application({
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('Senchagram.view.Main'));
+
+        // cargamos nuestras imagenes
+        Ext.getStore('Images').load();
     },
 
     onUpdated: function() {

@@ -3,7 +3,11 @@ Ext.define('Senchagram.view.Main', {
     xtype: 'main',
     requires: [
         'Ext.TitleBar',
-        'Ext.Video'
+        'Ext.Img',
+        'Ext.navigation.View',
+        //componentes requeridos
+        'Senchagram.view.ImagesList',
+        'Senchagram.view.ImageContainer'
     ],
     config: {
         tabBarPosition: 'bottom',
@@ -12,36 +16,36 @@ Ext.define('Senchagram.view.Main', {
             {
                 title: 'Welcome',
                 iconCls: 'home',
-
                 styleHtmlContent: true,
                 scrollable: true,
-
-                items: {
-                    docked: 'top',
-                    xtype: 'titlebar',
-                    title: 'Welcome to Sencha Touch 2'
-                },
-
-                html: [
-                    "You've just generated a new Sencha Touch 2 project. What you're looking at right now is the ",
-                    "contents of <a target='_blank' href=\"app/view/Main.js\">app/view/Main.js</a> - edit that file ",
-                    "and refresh to change what's rendered here."
-                ].join("")
+                xtype:'navigationview',
+                items:[{
+                    xtype:'imageslist',
+                    title:'Photos',
+                    listeners:{
+                        itemtap:function (list, index, target, record) {
+                            list.up('navigationview').push({
+                                xtype:'imagecontainer',
+                                data:record.getData()
+                            });
+                        }
+                    }
+                }]
             },
             {
-                title: 'Get Started',
-                iconCls: 'action',
-
+                title: 'Info',
+                iconCls: 'info',
+                layout: 'hbox',
                 items: [
                     {
                         docked: 'top',
                         xtype: 'titlebar',
-                        title: 'Getting Started'
+                        title: 'Sencha'
                     },
                     {
-                        xtype: 'video',
-                        url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
-                        posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
+                        xtype: 'image',
+                        src: 'http://www.ideashub.mx/wp-content/uploads/2013/04/TALLER_sencha3.jpg',
+                        flex:1
                     }
                 ]
             }

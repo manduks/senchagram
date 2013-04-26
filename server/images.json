@@ -1,0 +1,28 @@
+Ext.data.JsonP.callback1({
+	"images":[{
+		id:1,
+		author:'Homero Simpson',
+		description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+		src:'./resources/images/001.jpg'
+	},{
+		id:2,
+		author:'Bart Simpson',
+		description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+		src:'./resources/images/002.jpg'
+	},{
+		id:3,
+		author:'Lisa Simpson',
+		description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+		src:'./resources/images/003.jpg'
+	},{
+		id:4,
+		author:'Marge Simpson',
+		description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+		src:'./resources/images/004.jpg'
+	},{
+		id:5,
+		author:'Maggie Simpson',
+		description:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+		src:'./resources/images/005.jpg'
+	}]
+});
